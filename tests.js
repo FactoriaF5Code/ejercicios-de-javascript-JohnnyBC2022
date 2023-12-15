@@ -4,7 +4,7 @@ describe("Conceptos básicos: variables", () => {
     it("Usaremos let para definir variables", () => {
         let name = "Elrond";
         // cambia el valor de la variable
-        
+
         expect(name).to.equal("Elrond");
     });
 
@@ -55,18 +55,18 @@ describe("Números en Javascript", () => {
 describe("Operaciones aritméticas", () => {
     it("Usando suma", () => {
         const a = 10;
-        const b  = 90;
-        expect(a+b).to.equal(100);
+        const b = 90;
+        expect(a + b).to.equal(100);
     })
     it("Usando multiplicación", () => {
         const a = 10;
         const b = 1.3;
-        expect(a*b).to.equal(13);
+        expect(a * b).to.equal(13);
     })
     it("Usando división", () => {
         const a = 10;
         const b = 4;
-        expect(a/b).to.equal(2.5);
+        expect(a / b).to.equal(2.5);
     })
 })
 
@@ -79,10 +79,10 @@ describe("Strings", () => {
 });
 
 describe("Booleanos", () => {
-   it("un booleano puede tomar dos valores", () => {
+    it("un booleano puede tomar dos valores", () => {
         let b = true;
         expect(b).to.equal(true);
-   }) 
+    })
 });
 
 describe('Comparaciones en Javascript', () => {
@@ -192,23 +192,20 @@ describe('Algebra booleana', () => {
 describe("Funciones (I)", () => {
 
     function evenOrOdd(n) {
-        if (numero%2 == 0) {
-            let par = numero
-            return "odd";
-            // cambia el contenido de la función para hacer
-            // pasar los tests
-        
-        } else {
+        // cambia el contenido de la función para hacer
+        // pasar los tests
+        if (n % 2 === 0) {
             return "even";
+        } else {
+            return "odd";
         }
-
-        return "";
     }
 
     function greeting(name) {
         // cambia el contenido de la función para hacer
         // pasar los tests
-        return "";
+
+        return "Hola, " + name + "!";
     }
 
     it("Función que nos dice si un número es par (even) o impar (odd)", () => {
@@ -234,7 +231,7 @@ describe("Funciones (II)", () => {
     }
 
     function h(name) {
-        
+
         // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/length
         if (name.length <= 4) {
             return "too short";
@@ -253,7 +250,7 @@ describe("Funciones (II)", () => {
 
 
         // substituye "???" por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === 28).to.be.true;
     })
 
     it("Cuál es el resultado de invocar la función? (2)", () => {
@@ -262,16 +259,16 @@ describe("Funciones (II)", () => {
 
 
         // substituye "???" por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "Son Pinky y Cerebro").to.be.true;
     })
 
     it("Cuál es el resultado de invocar la función? (3)", () => {
 
         // substituye "???" por el resultado en cada caso
-        expect(h("khaleesi mother of dragons breaker of chains") === "???").to.be.true;
-        expect(h("sarah") === "???").to.be.true;
-        expect(h("bob") === "???").to.be.true;
-        expect(h("robertson") === "???").to.be.true;
+        expect(h("khaleesi mother of dragons breaker of chains") === "very long").to.be.true;
+        expect(h("sarah") === "adecquate").to.be.true;
+        expect(h("bob") === "too short").to.be.true;
+        expect(h("robertson") === "long").to.be.true;
     })
 
 })
@@ -280,19 +277,20 @@ describe("Colecciones en JS: Array", () => {
     it("Pueden crearse usando [ ]", () => {
 
         // crea un array "a" usando los corchetes []
-
+        let a = [1, 2, 3]
         expect(Array.isArray(a)).to.be.true;
     })
     it("Pueden crearse usando new Array", () => {
 
         // crea un array "a" usando el constructor "new"
-
+        let a = new Array("a", 1, "patata", undefined);
         expect(Array.isArray(a)).to.be.true;
     })
     it("Pueden estar vacíos o contener elementos", () => {
 
         // crea un array que esté vacío y otro que no esté vacío
-
+        let emptyArray = [];
+        let nonEmptyArray = [4, "2", ["pepe", undefined, null]];
         expect(emptyArray).to.be.empty;
         expect(nonEmptyArray).not.to.be.empty;
     })
@@ -302,7 +300,7 @@ describe("Colecciones en JS: Array", () => {
 
         // completa la definición que falta usando la propiedad length
 
-        expect("???").to.equal(4);
+        expect(list.length).to.equal(4);
     })
     it("Nos permiten acceder a cada elemento del array", () => {
 
@@ -310,15 +308,15 @@ describe("Colecciones en JS: Array", () => {
 
         // sustituye "???" en cada caso para acceder al elemento correspondiente de la lista
 
-        expect("???").to.equal("Piña");
-        expect("???").to.equal("Melón");
+        expect(fruits[0]).to.equal("Piña");
+        expect(fruits[3]).to.equal("Melón");
     })
     it("Nos permiten modificar cada elemento", () => {
 
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
 
         // Añade el código que permite modificar el elemento correspondiente
-
+        fruits = ["Piña", "Pera", "Fresa", "Melón"]
         expect(fruits).to.have.same.members(["Piña", "Pera", "Fresa", "Melón"])
     })
 
@@ -326,7 +324,7 @@ describe("Colecciones en JS: Array", () => {
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
 
         // Añade el código que permite modificar la lista (incluyendo un elemento al final)
-
+        fruits.push("Pera")
         expect(fruits).to.have.same.members(["Piña", "Manzana", "Fresa", "Melón", "Pera"])
     })
 })
@@ -334,7 +332,7 @@ describe("Colecciones en JS: Array", () => {
 describe("Ejemplos resueltos: Operaciones iterables", () => {
     it("map nos permite realizar operaciones elemento a elemento", () => {
 
-        let list = [1,5,7,9,11,13];
+        let list = [1, 5, 7, 9, 11, 13];
 
         function multiplicarPor2(num) {
             return num * 2;
@@ -343,23 +341,23 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
         // utiliza la función map para aplicar la función multiplicarPor2 a los números de la lista
         // SOLUCIÓN: 
         list = list.map(multiplicarPor2);
-        
-        expect(list).to.have.same.members([2,10,14,18,22,26]);
+
+        expect(list).to.have.same.members([2, 10, 14, 18, 22, 26]);
     })
     it("map nos permite realizar operaciones elemento a elemento (2)", () => {
 
-        let list = [1,5,7,9,11,13];
+        let list = [1, 5, 7, 9, 11, 13];
 
         // utiliza la función map para aplicar la función multiplicarPor2 a los números de la lista
         // SOLUCIÓN: 
-        list = list.map( n => n*2 );
-        
-        expect(list).to.have.same.members([2,10,14,18,22,26]);
+        list = list.map(n => n * 2);
+
+        expect(list).to.have.same.members([2, 10, 14, 18, 22, 26]);
     })
 
     it("filter recorre la lista y se queda con los elementos que cumplen una condición", () => {
 
-        let list = [1,2,3,4,5,6,7,8,9];
+        let list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
         function esPar(num) {
             // si el número es par (divisible por 2) devuelve true
@@ -368,25 +366,25 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
 
         // utiliza la función filter para quedarte sólo con los números pares
         // SOLUCIÓN: 
-        list = list.filter( esPar );
-        
-        expect(list).to.have.same.members([2,4,6,8]);
+        list = list.filter(esPar);
+
+        expect(list).to.have.same.members([2, 4, 6, 8]);
     })
 
     it("filter recorre la lista y se queda con los elementos que cumplen una condición (2)", () => {
 
-        let list = [1,2,3,4,5,6,7,8,9];
+        let list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
         // utiliza la función filter para quedarte sólo con los números pares
         // SOLUCIÓN: 
-        list = list.filter( num => num % 2 == 0 );
-        
-        expect(list).to.have.same.members([2,4,6,8]);
+        list = list.filter(num => num % 2 == 0);
+
+        expect(list).to.have.same.members([2, 4, 6, 8]);
     })
 
     it("some recorre los elementos de la lista y comprueba si ALGUNO cumple la condición", () => {
 
-        let list = [1, 2 , -27, 13, 40, 95 , 82, 9];
+        let list = [1, 2, -27, 13, 40, 95, 82, 9];
 
         function menorQue0(num) {
             return num < 0;
@@ -394,14 +392,14 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
 
         // aplica la función some para verificar si alguno de los números de la lista es menor que 0
         // SOLUCIÓN:
-        let condicion = list.some(menorQue0);        
-        
+        let condicion = list.some(menorQue0);
+
         expect(condicion).to.equal(true);
     })
 
     it("every recorre los elementos de la lista y comprueba si ALGUNO cumple la condición", () => {
 
-        let list = [1, 2 , -27, 13, 40, 95 , 82, 9];
+        let list = [1, 2, -27, 13, 40, 95, 82, 9];
 
         function menorQue0(num) {
             return num < 0;
@@ -409,10 +407,10 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
 
         // aplica la función some para verificar si alguno de los números de la lista es menor que 0
         // SOLUCIÓN:
-        let condicion = list.some(menorQue0);    
+        let condicion = list.some(menorQue0);
         // SOLUCIÓN ALTERNATIVA:
         // let condición = list.some( n => n < 0 );    
-        
+
         expect(condicion).to.equal(true);
     })
 })
@@ -420,13 +418,16 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
 describe("Operaciones iterables", () => {
     it("map nos permite realizar operaciones elemento a elemento", () => {
 
-        let list = [1,5,7,9,11,13];
+        let list = [1, 5, 7, 9, 11, 13];
 
+        function resta1(numero) {
+            return numero - 1;
+        }
         // utiliza la función map para aplicar los números de la lista
-        list = "???";
-        
+        list = list.map(resta1);
 
-        expect(list).to.have.same.members([0,4,6,8,10,12]);
+
+        expect(list).to.have.same.members([0, 4, 6, 8, 10, 12]);
     })
 
     it("map nos permite realizar operaciones elemento a elemento (2)", () => {
@@ -434,7 +435,7 @@ describe("Operaciones iterables", () => {
         let list = ["Pikachu", "Charmander", "Magikarp"];
 
         // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
-                
+        const result = list.map(list => list + ", te elijo a ti!")
         expect(result).to.have.same.members([
             "Pikachu, te elijo a ti!",
             "Charmander, te elijo a ti!",
@@ -444,29 +445,36 @@ describe("Operaciones iterables", () => {
 
     it("Buscando el planeta con Array.includes", () => {
 
-        let knownExoplanets = [ "TOI-1298 b","TOI-132 b","TOI-1333 b","TOI-1338 b","TOI-1431 b","TOI-1444 b","TOI-1478 b","TOI-150.01","TOI-157 b","TOI-1601 b","TOI-163 b","TOI-1634 b","TOI-1685 b","TOI-169 b","TOI-172 b","TOI-1728 b","TOI-1749 b","TOI-1749 c"];
+        let knownExoplanets = ["TOI-1298 b", "TOI-132 b", "TOI-1333 b", "TOI-1338 b", "TOI-1431 b", "TOI-1444 b", "TOI-1478 b", "TOI-150.01", "TOI-157 b", "TOI-1601 b", "TOI-163 b", "TOI-1634 b", "TOI-1685 b", "TOI-169 b", "TOI-172 b", "TOI-1728 b", "TOI-1749 b", "TOI-1749 c"];
 
         // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-        let result = "???";
-        
-        expect(result).to.equal(true);        
+        let result = knownExoplanets.includes("TOI-1634 b");
+
+        expect(result).to.equal(true);
     })
 
     it("filtrando planetas", () => {
 
-        let knownExoplanets = [ "TOI-1298 b","TOI-132 b","TOI-1333 b","TOI-1338 b","TOI-1431 b","TOI-1444 b","TOI-1478 b","TOI-150.01","TOI-157 b","TOI-1601 b","TOI-163 b","TOI-1634 b","TOI-1685 b","TOI-169 b","TOI-172 b","TOI-1728 b","TOI-1749 b","TOI-1749 c"];
+        let knownExoplanets = ["TOI-1298 b", "TOI-132 b", "TOI-1333 b", "TOI-1338 b", "TOI-1431 b", "TOI-1444 b", "TOI-1478 b", "TOI-150.01", "TOI-157 b", "TOI-1601 b", "TOI-163 b", "TOI-1634 b", "TOI-1685 b", "TOI-169 b", "TOI-172 b", "TOI-1728 b", "TOI-1749 b", "TOI-1749 c"];
 
         // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
         // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
         // p.ej. "Hola".endsWith('a') devuelve true
-        let result = "???";
-        
+        let result = knownExoplanets.filter(planet => planet.endsWith('c'));
+
 
         // todos los planetas de result terminan con la letra c
-        expect(result.every( p => p.endsWith('c'))).to.equal(true);        
+        expect(result.every(p => p.endsWith('c'))).to.equal(true);
     })
 
     // Bonus: Escribe un test como los anteriores con algún ejemplo que utilice 
     // una lista alguna de las funciones que hemos visto, como map o filter.
-    
+    let list = [13, 12, 47, 19, 42, 95, 82, 9, 28];
+
+    list = list.filter(num => num >= 18);
+    if (list.length == 6) {
+        return alert("Test ejemplo superado, los números mayores de Edad son:\n\n " + list);
+    } else{
+        return alert("no, no, no");
+    };
 })
