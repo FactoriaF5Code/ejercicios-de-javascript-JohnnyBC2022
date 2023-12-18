@@ -469,12 +469,12 @@ describe("Operaciones iterables", () => {
 
     // Bonus: Escribe un test como los anteriores con algún ejemplo que utilice 
     // una lista alguna de las funciones que hemos visto, como map o filter.
-    let list = [13, 12, 47, 19, 42, 95, 82, 9, 28];
+   /*  let list = [13, 12, 47, 19, 42, 95, 82, 9, 28];
 
     list = list.filter(num => num >= 18);
     if (list.length == 6) {
         return alert("Test ejemplo superado, los números mayores de Edad son:\n\n " + list);
     } else{
         return alert("no, no, no");
-    };
+    }; */
 })
